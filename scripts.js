@@ -92,7 +92,7 @@ gulp.task('build:js', function gulpPackageJs() {
         ])
         .pipe(size())
         .pipe(concat(moduleName + '.ng.js'))
-        .pipe(gulp.dest('dist/javascript'));
+        .pipe(gulp.dest('build/javascript'));
 });
 
 
@@ -103,13 +103,13 @@ gulp.task('build:js', function gulpPackageJs() {
  * This makes a minified copy of the file that is built by task build:js.
  */
 gulp.task('build:jsmin', ['build:js'], function gulpPackageJs() {
-    return gulp.src('dist/javascript/*.js')
+    return gulp.src('build/javascript/*.js')
         .pipe(size())
         .pipe(uglify())
         .pipe(rename(function rename(path) {
             path.extname = '.min.js';
         }))
-        .pipe(gulp.dest('dist/javascript'))
+        .pipe(gulp.dest('build/javascript'))
         .pipe(size());
 });
 
