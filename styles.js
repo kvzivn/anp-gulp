@@ -1,11 +1,12 @@
 'use strict';
 
 var autoprefixer = require('gulp-autoprefixer'),
+    gulp = require('gulp'),
     nib = require('nib'),
     rename = require('gulp-rename'),
+    size = require('gulp-size'),
     sourcemaps = require('gulp-sourcemaps'),
-    stylus = require('gulp-stylus'),
-    gulp = require('gulp');
+    stylus = require('gulp-stylus');
 
 
 
@@ -22,7 +23,8 @@ gulp.task('stylus', function gulpStylus() {
         }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/stylesheets'));
+        .pipe(gulp.dest('dist/stylesheets'))
+        .pipe(size());
 });
 
 
@@ -41,5 +43,7 @@ gulp.task('stylus:min', function gulpStylusMin() {
         .pipe(rename(function rename(path) {
             path.extname = '.min.css';
         }))
-        .pipe(gulp.dest('dist/stylesheets'));
+        .pipe(gulp.dest('dist/stylesheets'))
+        .pipe(size());
 });
+

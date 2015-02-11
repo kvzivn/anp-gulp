@@ -1,6 +1,7 @@
 'use strict';
 
-var complexity = require('gulp-complexity'),
+var chalk      = require('chalk'),
+    complexity = require('gulp-complexity'),
     concat     = require('gulp-concat'),
     gulp       = require('gulp'),
     jscs       = require('gulp-jscs'),
@@ -68,6 +69,9 @@ gulp.task('lint:jscs', function gulpJscs() {
  * Read more: https://github.com/philbooth/complexityReport.js
  */
 gulp.task('complexity', function gulpComplexity() {
+    console.log(chalk.yellow('Maintainability index: 171 is perfect, below 65 is unmaintainable.'));
+    console.log(chalk.blue('Read more: jscomplexity.org/complexity'));
+
     return gulp.src('src/javascript/**/*.js')
         .pipe(complexity());
 });
