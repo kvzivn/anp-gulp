@@ -23,7 +23,7 @@ gulp.task('stylus', function gulpStylus() {
         }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/stylesheets'))
+        .pipe(gulp.dest('build/stylesheets'))
         .pipe(size());
 });
 
@@ -43,7 +43,7 @@ gulp.task('stylus:min', function gulpStylusMin() {
         .pipe(rename(function rename(path) {
             path.extname = '.min.css';
         }))
-        .pipe(gulp.dest('dist/stylesheets'))
+        .pipe(gulp.dest('build/stylesheets'))
         .pipe(size());
 });
 

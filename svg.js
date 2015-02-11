@@ -9,5 +9,5 @@ gulp.task('svgstore', function svg() {
         .src('src/images/*.svg')
         .pipe(svgmin())
         .pipe(svgstore())
-        .pipe(gulp.dest('dist/images'));
+        .pipe(gulp.dest('build/images'));
 });
