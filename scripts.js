@@ -107,7 +107,6 @@ gulp.task('build:jsmin', ['build:js'], function gulpPackageJs() {
         .pipe(size())
         .pipe(uglify())
         .pipe(rename(function rename(path) {
-            console.log(path);
             path.extname = '.min.js';
         }))
         .pipe(gulp.dest('dist/javascript'))
