@@ -1,11 +1,17 @@
 'use strict';
 
-var gulp = require('gulp'),
-    stylus = require('gulp-stylus'),
+var autoprefixer = require('gulp-autoprefixer'),
     nib = require('nib'),
+    rename = require('gulp-rename'),
     sourcemaps = require('gulp-sourcemaps'),
-    rename = require('gulp-rename');
+    stylus = require('gulp-stylus'),
+    gulp = require('gulp');
 
+
+
+/**
+ * Compile stylus source to CSS
+ */
 gulp.task('stylus', function gulpStylus() {
     return gulp
         .src('src/stylesheets/*.styl')
@@ -14,10 +20,16 @@ gulp.task('stylus', function gulpStylus() {
           use: nib(),
           compress: false
         }))
+        .pipe(autoprefixer('last 2 version'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/stylesheets'));
 });
 
+
+
+/**
+ * Compile stylus source to minified CSS
+ */
 gulp.task('stylus:min', function gulpStylusMin() {
     return gulp
         .src('src/stylesheets/*.styl')
@@ -25,8 +37,9 @@ gulp.task('stylus:min', function gulpStylusMin() {
             use: nib(),
             compress: true
         }))
+        .pipe(autoprefixer('last 2 version'))
         .pipe(rename(function rename(path) {
             path.extname = '.min.css';
         }))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/stylesheets'));
 });
