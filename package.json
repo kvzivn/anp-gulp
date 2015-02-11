@@ -1,0 +1,15 @@
+{
+  "name": "gulp",
+  "version": "1.0.1",
+  "description": "A collection of Gulp files for Apsis' front end.",
+  "main": "default.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://tfs2013/tfs/RD/ProspectEye/_git/gulp"
+  },
+  "author": "HAPE",
+  "license": "ISC"
+}
