@@ -5,17 +5,21 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     pkg = global.MODULE_PKG;
 
-gulp.task('release', ['build:jsmin', 'stylus:min'], function gulpBuild() {
+gulp.task('release', ['build:js', 'stylus:min'], function gulpBuild() {
     var banner = getBannerText();
 
-    gulp.src('build/javascript/*.min.js')
+    gulp.src('build/*.js')
         .pipe(header(banner, { pkg: pkg }))
+        .pipe(gulp.dest('dist'))
+        .pipe(size());
+
+    gulp.src('build/javascript/*.js')
         .pipe(gulp.dest('dist/javascript'))
         .pipe(size());
 
     gulp.src('build/stylesheets/*.min.css')
-        .pipe(gulp.dest('dist/stylesheets')
-        .pipe(header(banner, { pkg: pkg })))
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(gulp.dest('dist/stylesheets'))
         .pipe(size());
 });
 

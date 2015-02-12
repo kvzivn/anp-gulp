@@ -11,10 +11,10 @@ var chalk      = require('chalk'),
     size       = require('gulp-size'),
     uglify     = require('gulp-uglify'),
 
-    /**
-     * To get the root package name we call on a variable set in /gulpfile.js.
-     */
+    // To get to the root package.json we have to go three steps back up.
+    // TODO: Fix the pattern glob here.
     moduleName = global.MODULE_PKG.name.match(/ng-(.*)/)[1];
+
 
 /**
  * Lint all files in src/javascript using JSHint and JSCS.
@@ -85,16 +85,17 @@ gulp.task('complexity', function gulpComplexity() {
  */
 gulp.task('build:js', function gulpPackageJs() {
 
+    gulp.src('src/*.module.js')
+        .pipe(gulp.dest('build'));
+
     return gulp.src([
-            'src/javascript/*.module.js',
             'src/javascript/*.controller.js',
             'src/javascript/*.factory.js',
             'src/javascript/*.service.js',
             'src/javascript/*.directive.js'
         ])
-        .pipe(size())
-        .pipe(concat(moduleName + '.ng.js'))
-        .pipe(gulp.dest('build/javascript'));
+        .pipe(gulp.dest('build/javascript'))
+        .pipe(size());
 });
 
 
