@@ -14,7 +14,7 @@
   "license": "ISC",
   "registry": "npm",
   "dependencies": {
-    "browser-sync": "npm:browser-sync@^2.0.1",
+    "browser-sync": "^2.0.1",
     "chalk": "^0.5.1",
     "cheerio": "^0.18.0",
     "del": "^1.1.1",
