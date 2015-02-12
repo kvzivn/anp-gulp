@@ -21,6 +21,21 @@ gulp.task('release', ['build:js', 'stylus:min'], function gulpBuild() {
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest('dist/stylesheets'))
         .pipe(size());
+
+    gulp.src('src/templates/*.html')
+        .pipe(gulp.dest('dist/templates'))
+        .pipe(size());
+
+    gulp.src([
+            'src/images/**/*.png',
+            'src/images/**/*.gif',
+            'src/images/**/*.jpg',
+            'src/images/**/*.jpeg',
+            'src/images/**/*.webp',
+            'src/images/**/*.svg'
+        ])
+        .pipe(gulp.dest('dist/images'))
+        .pipe(size());
 });
 
 function getBannerText() {
