@@ -12,7 +12,7 @@
   },
   "author": "HAPE",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.0.1",
     "chalk": "^0.5.1",
     "cheerio": "^0.18.0",
