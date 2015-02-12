@@ -11,10 +11,10 @@ var chalk      = require('chalk'),
     size       = require('gulp-size'),
     uglify     = require('gulp-uglify'),
 
-    // To get to the root package.json we have to go three steps back up.
-    // TODO: Fix the pattern glob here.
-    moduleName = require('../../../package.json').name.match(/ng-(.*)/)[1];
-
+    /**
+     * To get the root package name we call on a variable set in /gulpfile.js.
+     */
+    moduleName = global.MODULE_PKG.name.match(/ng-(.*)/)[1];
 
 /**
  * Lint all files in src/javascript using JSHint and JSCS.
