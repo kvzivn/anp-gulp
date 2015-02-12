@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     header = require('gulp-header'),
-    pkg = require('../package.json'),
+    pkg = require('../../../package.json'),
     size = require('gulp-size');
 
 
