@@ -2,9 +2,8 @@
 
 var gulp = require('gulp'),
     header = require('gulp-header'),
-    pkg = require('../../../package.json'),
-    size = require('gulp-size');
-
+    size = require('gulp-size'),
+    pkg = global.MODULE_PKG;
 
 gulp.task('release', ['build:jsmin', 'stylus:min'], function gulpBuild() {
     var banner = getBannerText();
