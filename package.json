@@ -1,17 +1,21 @@
 {
-    "name": "gulp",
-    "version": "1.0.1",
-    "description": "A collection of Gulp files for Apsis' front end.",
-    "main": "default.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "name": "anp-gulp",
+    "version": "1.0.0",
+    "description": "A collection of gulp tasks only relevant to my exact project setup.",
+    "main": "tasks/default.js",
     "repository": {
         "type": "git",
-        "url": "http://tfs2013/tfs/RD/ProspectEye/_git/gulp"
+        "url": "https://github.com/hmps/anp-gulp.git"
     },
-    "author": "HAPE",
-    "license": "ISC",
+    "keywords": [
+        "private"
+    ],
+    "author": "Hampus Persson <h@hmps.se> (http://hmps.se/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hmps/anp-gulp/issues"
+    },
+    "homepage": "https://github.com/hmps/anp-gulp",
     "dependencies": {
         "browser-sync": "^2.0.1",
         "cheerio": "^0.18.0",
