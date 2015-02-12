@@ -12,7 +12,6 @@
   },
   "author": "HAPE",
   "license": "ISC",
-  "registry": "npm",
   "dependencies": {
     "browser-sync": "^2.0.1",
     "chalk": "^0.5.1",
