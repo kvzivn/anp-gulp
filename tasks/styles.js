@@ -1,6 +1,8 @@
 'use strict';
 
 var autoprefixer = require('gulp-autoprefixer'),
+    chalk = require('chalk'),
+    glob = require('glob'),
     gulp = require('gulp'),
     nib = require('nib'),
     rename = require('gulp-rename'),
@@ -13,13 +15,17 @@ var autoprefixer = require('gulp-autoprefixer'),
 /**
  * Compile stylus source to CSS
  */
-gulp.task('stylus', function gulpStylus() {
+gulp.task('styles', function gulpStylus() {
+
+    var path = getStyleImportPath();
+
     return gulp
         .src('src/stylesheets/*.styl')
         .pipe(sourcemaps.init())
         .pipe(stylus({
-          use: nib(),
-          compress: false
+            use: nib(),
+            import: ['nib', path],
+            compress: false
         }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(sourcemaps.write('.'))
@@ -33,12 +39,16 @@ gulp.task('stylus', function gulpStylus() {
 /**
  * Compile stylus source to minified CSS
  */
-gulp.task('stylus:min', function gulpStylusMin() {
+gulp.task('styles:min', function gulpStylusMin() {
+
+    var path = getStyleImportPath();
+
     return gulp
         .src('src/stylesheets/*.styl')
         .pipe(stylus({
             use: nib(),
-            compress: true
+            import: ['nib', path],
+            compress: false
         }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(rename(function rename(path) {
@@ -49,3 +59,24 @@ gulp.task('stylus:min', function gulpStylusMin() {
         .pipe(size());
 });
 
+
+
+/**
+ * [getStyleImportPath description]
+ * @return {[type]} [description]
+ */
+function getStyleImportPath() {
+    var dir = glob.sync('jspm_packages/apsis/styles*'),
+        path = '';
+
+    if ( dir.length ) {
+        path = '../../' + dir[0] + '/*.styl';
+    } else {
+        console.log('');
+        console.log(chalk.bold.red('>>>>> You have not installed Apsis stylus helpers. <<<<<<'));
+        console.log(chalk.yellow('If you need them, run jspm install apsis:styles.'));
+        console.log('');
+    }
+
+    return path;
+}
