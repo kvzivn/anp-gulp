@@ -2,4 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('build', ['build:js', 'stylus:min'], function gulpBuild() {});
+gulp.task('build', ['build:js', 'styles:min'], function gulpBuild() {});

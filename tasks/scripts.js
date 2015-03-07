@@ -9,11 +9,11 @@ var chalk      = require('chalk'),
     notify     = require('gulp-notify'),
     rename     = require('gulp-rename'),
     size       = require('gulp-size'),
-    uglify     = require('gulp-uglify'),
+    uglify     = require('gulp-uglify');
 
     // To get to the root package.json we have to go three steps back up.
     // TODO: Fix the pattern glob here.
-    moduleName = global.MODULE_PKG.name.match(/ng-(.*)/)[1];
+    // moduleName = global.MODULE_PKG.name.match(/ng-(.*)/)[1];
 
 
 /**

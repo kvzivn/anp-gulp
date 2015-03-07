@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 
-gulp.task('watch', ['clean', 'stylus', 'lint:all', ], function() {
-    gulp.watch('src/stylesheets/**/*.scss', ['stylus']);
+gulp.task('watch', ['clean', 'styles', 'lint:all' ], function() {
+    gulp.watch('src/stylesheets/**/*.scss', ['styles']);
     gulp.watch('src/javascript/*.js', ['lint:all']);
 });

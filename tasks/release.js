@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     pkg = global.MODULE_PKG;
 
-gulp.task('release', ['build:js', 'stylus:min'], function gulpBuild() {
+gulp.task('release', ['build:js', 'styles:min'], function gulpBuild() {
     var banner = getBannerText();
 
     gulp.src('build/*.js')
