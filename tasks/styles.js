@@ -66,7 +66,7 @@ gulp.task('styles:min', function gulpStylusMin() {
  * @return {[type]} [description]
  */
 function getStyleImportPath() {
-    var dir = glob.sync('jspm_packages/apsis/styles*'),
+    var dir = glob.sync('jspm_packages/apsis/stylus-helpers*'),
         path = '';
 
     if ( dir.length ) {
