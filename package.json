@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/hmps/anp-gulp",
   "dependencies": {
+    "babel": "^4.7.16",
     "browser-sync": "^2.0.1",
-    "cheerio": "^0.18.0",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
@@ -39,12 +39,12 @@
     "imagemin-pngquant": "^4.0.0",
     "jshint-stylish": "^1.0.0",
     "nib": "^1.1.0",
+    "require-dir": "^0.3.0",
     "svgmin": "^0.1.0",
     "svgo": "^0.5.0"
   },
   "devDependencies": {
     "chalk": "^0.5.1",
-    "glob": "^4.3.5",
-    "nib": "^1.1.0"
+    "glob": "^4.3.5"
   }
 }
