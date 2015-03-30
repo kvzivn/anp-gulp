@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/hmps/anp-gulp.git"
   },
+  "scripts": {
+    "compile": "babel src --out-dir dist"
+  },
   "keywords": [
     "private"
   ],
